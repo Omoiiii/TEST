@@ -1,0 +1,712 @@
+/* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; Prevent scrollbars during animation */
+    min-height: 100%;
+    flex-direction: column;
+
+    
+}
+.background-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place behind all other content */
+    overflow: hidden;
+}
+
+.background-slideshow .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideAnimation 9s infinite;
+}
+
+.background-slideshow .slide:nth-child(1) {
+    animation-delay: 0s;
+}
+.background-slideshow .slide:nth-child(2) {
+    animation-delay: 3s;
+}
+.background-slideshow .slide:nth-child(3) {
+    animation-delay: 6s;
+}
+.background-slideshow .slide:nth-child(4) {
+    animation-delay: 9s;
+}
+@keyframes slideAnimation {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #BDD5EA; /* Black background color */
+    animation: collapseBackground 2s 2s forwards; /* Animate collapse with delay */
+}
+
+.centered-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.static-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+   height: 45px;
+    position: relative;
+    z-index: 1000;
+}
+.sticky-bottom-section{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+#logo {
+    width: 0; /* Start with zero width */
+    animation: expandAndMove 2s forwards; /* Apply combined animation */
+}
+#logo2 {
+    width: 130px; /* Start with zero width */
+    /* Apply combined animation */
+    
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between left and right icons */
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+#icon {
+    width: 0; /* Start with zero width */
+    font-size: 25px; /* Adjust size as needed */
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    animation: showIcon 1s 4s forwards; /* Animate after previous animations */
+    color:white;
+}
+
+.right-icons {
+    display: flex;
+    gap: 40px; /* Adjust spacing between icons as needed */
+    color:white;
+}
+
+.right-icons i {
+    font-size: 25px; /* Same size as the first icon */
+    width: 0; /* Start with zero width */
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    color:white;
+    animation: showRightIcon 1s 4s forwards; /* Animate after previous animations */
+}
+
+
+@keyframes collapseBackground {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height: 60px;
+    }
+}
+
+@keyframes expandAndMove {
+    0% {
+        width: 0;
+        transform: translateY(0);
+    }
+    50% {
+        width: 130px;
+        transform: translateY(0);
+    }
+    100% {
+        width: 130px;
+        transform: translateY(-275px); /* Move upwards */
+    }
+}
+.menu-container {
+    position: relative;
+  }
+  
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    transform: translateX(-250px);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-container:hover .mobile-menu {
+    transform: translateX(0);
+  }
+@keyframes showIcon {
+    0% {
+        width: 0%;
+     }
+     100% {
+         width: 2%; /* Let the content determine the width */
+     }
+ 
+}
+
+@keyframes showRightIcon {
+    0% {
+        width: 0%;
+     }
+     100% {
+         width: 100%; /* Let the content determine the width */
+     }
+ 
+}
+/* Hide right icons on small screens */
+@media (max-width: 477px) {
+    .right-icons {
+        display: none;
+    }
+
+    
+@keyframes collapseBackground {
+    0% {
+        height: 100%;
+    }
+    100% {
+        height: 60px;
+    }
+}
+
+@keyframes showIcon {
+    0% {
+        width: 0%;
+     }
+     100% {
+         width: 100%; /* Let the content determine the width */
+     }
+ 
+}
+
+@keyframes showRightIcon {
+    0% {
+       width: 0%;
+    }
+    100% {
+        width: 100%; /* Let the content determine the width */
+    }
+}
+}
+.product-blocks {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 120px;
+    height: 150px;
+    width: 100%;
+    animation: showProductBlocks 1s 2s forwards; /* Animate with delay */
+}
+
+
+.product-block {
+    position: relative;  
+    background-color: #0000006b;
+    border: 0.8px solid #5f5e5eb4;
+    border-radius: 20px;
+    color: black;
+    width: 20%;
+    height: 75px; /* Change this value as needed */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0; /* Start hidden */
+    box-sizing: border-box;
+    animation: showProductBlocks 1s 2s forwards;
+    overflow: hidden;
+    transition: transform 2.5s ease; /* Smooth transition for transform */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+}
+.product-block img {
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the block */
+    transition: transform 2.5s ease; /* Smooth transition for transform */
+    opacity: 0.8; /* Set the initial opacity */
+}
+.product-block p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    font: 1em sans-serif;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.product-block:hover img {
+    transform: scale(1.1); /* Zoom the image */
+    opacity: 1; /* Set the opacity on hover */
+}
+@keyframes showProductBlocks {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    0% {
+        height: 0%;
+    }
+    100% {
+        height: 500px;
+    }
+}
+/*footer*/
+
+  .footer{
+    background:#BDD5EA;
+    padding:30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align:center;
+    }
+    
+    .footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    }
+    
+    .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    }
+    
+    .footer .row a:hover{
+    color:#fff;
+    }
+    
+    .footer .row ul{
+    width:100%;
+    }
+    
+    .footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+    }
+    
+    .footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+    }
+    
+    @media (max-width:720px){
+    .footer{
+    text-align:left;
+    padding:5%;
+    }
+    .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+    }
+    .footer .row a i{
+    margin:0% 3%;
+    }
+    }
+   
+    
+/* Hamburger menu styles */
+.hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start off-screen */
+    width: 250px;
+    height: 100%;
+    display: flex;
+    background-color: #BDD5EA;
+    z-index: 1000; /* Ensure it appears above other content */
+    flex-direction: column;
+    align-items: center;
+   /* padding-top: 60px;  Adjust for navbar height 
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);*/
+    transition: left 0.3s ease-in-out; /* Smooth transition */
+}
+
+.hamburger-menu a {
+    color: rgb(134, 132, 132);
+    text-decoration: none;
+    padding-left: 45px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 17px;
+    
+    transition: transform 0.5s ease;
+}
+
+.hamburger-menu a:hover {
+    color: #fff;
+    
+    transform: scale(1.1);
+    
+}
+
+.hamburger-menu.show-menu {
+    left: 0; /* Slide into view */
+}
+#close-menu {
+    align-self: flex-start;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+   
+}
+
+#close-menu:hover {
+    color: #000000; /* Change color on hover */
+}
+.section-below-navbar {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;; /* Space between left and right icons */
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #bdd5ea98;
+    color: rgb(255, 255, 255);
+   
+    animation: collapseSection 4s ease forwards; /* Collapse animation */
+    animation-delay: 4s; /* Start after 4 seconds */
+}
+.section-below-navbar p {
+    margin: 0;
+    font-style: inherit;
+    font-size: 100px; /* Adjust text size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#overtees-text {
+    color: white; /* Text color */
+    font-size: 24px; /* Adjust text size as needed */
+    margin: 0; /* Remove any default margin */
+    /* Apply animation */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: expandAMove 2s forwards;
+    width: 0;
+    
+}
+
+@keyframes expandAMove {
+    0% {
+        width: 0;
+        font-size: 0;
+        transform: translateY(0);
+    }
+   
+    100% {
+        font-size: 80px;
+        width: 130px;
+        transform: translateY(-15px); /* Move upwards */
+    }
+    
+}
+@keyframes expandAndMove {
+    0% {
+        width: 0;
+        transform: translateY(0);
+    }
+    50% {
+        width: 130px;
+        transform: translateY(0);
+    }
+    100% {
+        width: 130px;
+        transform: translateY(-315px); /* Move upwards */
+    }
+}
+.tees 
+{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 260px;
+    height: 150px;
+    width: 100%;
+    animation: showProductBlocks  2s forwards; /* Animate with delay */
+}
+
+     /*product page*/
+    #product1 .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px; 
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px ☐ rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+   
+    }
+    #product1 .pro-container{
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 60px;        
+        background-color: #BDD5EA45;
+        animation: expandHeight 1s ease-out forwards; /* Adjust duration and easing as needed */
+        
+    }
+    #product1 .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.3);
+    }  
+    #product1 .pro img {
+    width: 100%;
+    border-radius: 20px;
+    }
+    #product1 .pro.des {
+        text-align: start;       
+        padding: 10px 0;       
+        }       
+    #product1 .pro .des span {     
+        color: #606063;        
+        font-size: 12px;       
+        }
+        
+    #product1 .pro.des h5 {   
+    padding-top: 7px;
+        color: #1a1a1a;        
+        font-size: 14px;
+    }
+
+    #prodetails{
+      display: flex;
+      margin-top: 65px ;
+    }
+
+    #prodetails .product-image{
+    width: 30%;
+    margin-right: 50px;
+    }
+
+    .SmallImages{
+        display: flex;
+        justify-content: space-between;
+    }
+    .section-p2{
+        padding: 40px 30px;
+
+        
+      
+    }
+    .smallimgcol{
+        flex-basis: 24%;
+        cursor: pointer;;
+    }
+    #prodetails .product-details{
+        width: 50%;
+        padding-top: 30px;
+    }
+
+    #prodetails .product-details h4{
+        padding: 20px 0 20px 0;
+    }
+    #prodetails .product-details h2{
+        padding:  0 20px 0 0;
+        font-size: 26px;
+    }
+    #prodetails .product-details select{
+        display: block;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+    }
+    #prodetails .product-details input{
+        width: 50px;
+        height: 47px;
+        padding-left: 10px;
+        font-size: 16px;
+        margin-right: 10px; 
+    }
+    #prodetails .product-details button{
+       
+        padding: 15px 25px;
+        font-size: 16px;
+        background-color: #BDD5EA;
+        color: #fff;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        height: 47px;
+    }
+    #prodetails .product-details input:focus{
+        outline: none-;
+
+    }
+
+    .pro {
+        position: relative;
+        width: 100%; /* Adjust as needed */
+        
+        overflow: hidden; /* Ensure content does not overflow */
+    }
+    
+    .pro img {
+        width: 100%; /* Ensure the image takes the full width of its container */
+        height: auto; /* Maintain the aspect ratio */
+        
+    }
+    
+    .pro .des {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        
+        color: white; /* Text color */
+        padding: 10px; /* Padding around the text */
+        box-sizing: border-box; /* Include padding in the element's total width and height */
+    }
+    
+    .pro .des span,
+    .pro .des h5,
+    .pro .des .star,
+    .pro .des h4 {
+        display: block;
+        margin: 5px 0; /* Margin around each text element */
+    }
+    
+    /* Optional: Adjust star icon colors */
+    .pro .des .star i {
+        color: gold; /* Star color */
+    }
+    
+    /* Optional: Add a hover effect for the description */
+    .pro:hover .des {
+       /* background: rgba(0, 0, 0, 0);  Darker background on hover */
+        color: #000000;
+    }
+    @keyframes expandHeight {
+        0% {
+            height: 0;
+            opacity: 0; /* Optional: to fade in the content */
+        }
+        100% {
+            height: 100%;
+            opacity: 1; /* Optional: to fade in the content */
+        }
+    }
+     
+    @media (max-width: 480px) {
+        .navbar {
+            flex-direction: column;
+            height: auto;
+            padding: 10px;
+        }
+    
+        .navbar .right-icons {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .product-block:nth-child(2) {
+            order: -1; /* Move the second block to the first position */
+           height: 50px;
+        }
+        .hamburger-menu.open {
+            width: 100%;
+        }
+        .product-block img {
+            height: 350px;
+        }
+
+        @keyframes expandAndMove {
+            0% {
+                width: 0;
+                transform: translateY(0);
+            }
+            50% {
+                width: 130px;
+                transform: translateY(0);
+            }
+            100% {
+                width: 130px;
+                transform: translateY(-275px); /* Move upwards */
+            }
+        }
+}

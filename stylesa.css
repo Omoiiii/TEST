@@ -1,0 +1,299 @@
+/* Reset some basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #BDD5EA;
+    padding: 0 20px; /* Adjust padding to remove gap */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px; /* Set navbar height to 60px */
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.hamburger, .icons {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger i, .icons i {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 10px;
+    color: white; /* Set icon color to white */
+}
+
+.hamburger {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Ensure the hamburger is on the left */
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.logo img {
+    width: 130px; /* Set logo width to 130px */
+}
+
+.icons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Ensure the icons are on the right */
+}
+
+.icons i {
+    margin-left: 20px;
+}
+.icons :hover i{
+    color: #000000;
+
+}
+/* Make the navbar responsive */
+@media (max-width: 768px) {
+    .icons i {
+        display: none; /* Hide right icons on small screens */
+    }
+
+    .hamburger i {
+        display: block;
+    }
+}
+.hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start off-screen */
+    width: 250px;
+    height: 100%;
+    display: flex;
+    background-color: #BDD5EA;
+    z-index: 1000; /* Ensure it appears above other content */
+    flex-direction: column;
+    align-items: center;
+   /* padding-top: 60px;  Adjust for navbar height 
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);*/
+    transition: left 0.3s ease-in-out; /* Smooth transition */
+}
+
+.hamburger-menu a {
+    color: rgb(134, 132, 132);
+    text-decoration: none;
+    padding-left: 45px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 17px;
+    
+    transition: transform 0.5s ease;
+}
+
+.hamburger-menu a:hover {
+    color: #fff;
+    
+    transform: scale(1.1);
+    
+}
+
+.hamburger-menu.show-menu {
+    left: 0; /* Slide into view */
+}
+#close-menu {
+    align-self: flex-start;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+   
+}
+
+#close-menu:hover {
+    color: #000000; /* Change color on hover */
+}
+.section-below-navbar {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;; /* Space between left and right icons */
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #bdd5ea98;
+    color: rgb(255, 255, 255);
+   
+    animation: collapseSection 4s ease forwards; /* Collapse animation */
+    animation-delay: 4s; /* Start after 4 seconds */
+}
+
+
+/* Navbar Styling */
+.navbar {
+    background-color: #BDD5EA;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Section Below Navbar Styling */
+.below-navbar {
+    height: 230px;
+    width: 100%;
+    background-color: #bdd5ea81;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.below-navbar .content {
+    text-align: center;
+}
+
+.below-navbar h2 {
+    margin-bottom: 10px;
+}
+
+.below-navbar p {
+    font-size: 60px;
+    padding-top: 60px;
+}
+
+/* Other styles for your website */
+/*product blocks*/
+
+.productee {
+    max-width: 1000px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the content */
+    padding: 30px; /* Adds space inside the section */
+}
+
+.prow {
+    display: flex;
+    justify-content: space-between; /* Distributes blocks evenly */
+    margin-bottom: 20px; /* Adds space between rows */
+}
+
+.blocktee {
+    text-align: center;
+    flex: 1; /* Each block takes equal space */
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    border: 1px solid #000000; /* 1px border with light gray color */
+    border-radius: 20px; /* Rounded corners */
+    margin: 20px;
+    position: relative;
+    overflow: hidden; /* Ensures the image doesn't overflow the block */
+}
+
+.blocktee img {
+    width: 100%;
+    height: 100%;
+    scale: 1.1;
+    object-fit: cover; /* Ensures the image covers the entire block */
+    transition: transform 0.9s ease; /* Smooth transition for zoom effect */
+}
+
+.blocktee p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+   
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.blocktee:hover p {
+    opacity: 1; /* Show the paragraph on hover */
+}
+
+.blocktee:hover img {
+    transform: scale(1.23); /* Zoom effect on hover */
+   
+}
+.blocktee:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.589); /* Box shadow on hover */
+}
+.blocktee p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/*footer*/
+.footer {
+    background: #BDD5EA;
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+}
+
+.footer .row {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: gray;
+    font-size: 0.8em;
+}
+
+.footer .row a {
+    text-decoration: none;
+    color: gray;
+    transition: 0.5s;
+}
+
+.footer .row a:hover {
+    color: #fff;
+}
+
+.footer .row ul {
+    width: 100%;
+}
+
+.footer .row ul li {
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+.footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
+}
+
+@media (max-width: 720px) {
+    .footer {
+        text-align: left;
+        padding: 5%;
+    }
+    .footer .row ul li {
+        display: block;
+        margin: 10px 0px;
+        text-align: left;
+    }
+    .footer .row a i {
+        margin: 0% 3%;
+    }
+}
